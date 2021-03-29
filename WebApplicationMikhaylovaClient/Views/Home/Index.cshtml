@@ -1,0 +1,439 @@
+﻿@model IEnumerable<WebApplicationMikhaylovaClient.Models.Products>
+
+
+
+<div class="wrapper">
+
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <div id="popup" class="popup">
+        <div class="popup__body">
+            <div class="popup__content">
+                <a href="" class="popup__close close-popup"><i class="fas fa-times"></i></a>
+                <div class="form-vertical">
+
+                    <div class="popup__title">Авторизация</div>
+                    <hr noshade />
+                    <div class="popup__text">
+
+                        @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-horizontal span-aut">
+
+                                <div class="form-group">
+                                    <div>
+                                        <input placeholder="Введите эл. почту" type="email" class="" name="email" id="InpLogin" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div>
+                                        <input placeholder="Введите пароль" type="password" class="" name="password" id="InpPass" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div>
+                                        <input type="button" value="Войти" class="input-btn" id="checkUser" />
+                                    </div>
+                                </div>
+
+                            </div>
+                        }
+
+                        <div class="a-reg"><p>У вас нет учетной записи?</p> <a href="#popup_2" class="popup-link">Зарегистрируйтесь!</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="popup_2" class="popup">
+        <div class="popup__body">
+            <div class="popup__content">
+                <a href="" class="popup__close close-popup"><i class="fas fa-times"></i></a>
+                <div class="popup__title">Регистрация</div>
+                <hr noshade />
+                <div class="popup__text">
+                    @using (Html.BeginForm("Create", "Home", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-vertical-reg">
+                            <div class="form-horizontal-reg reg-column-1">
+                                <input placeholder="Имя" type="text" class="" name="name" id="InpName" />
+                                <input placeholder="Фамилия" type="text" class="" name="surname" id="InpSurname" />
+                                <input placeholder="Отчество" type="text" class="" name="patronymic" id="InpPatronymic" />
+                                <input placeholder="Номер телефона" type="text" class="" name="phone" id="InpPhone" />
+                            </div>
+                            <div class="form-horizontal-reg reg-column-2">
+
+                                @*<input placeholder="Дата рождения" type="text" class="" name="date_of_birth" id="InpDate" />*@
+                                <input placeholder="Дата рождения" type="text" class="datepicker-here" name="date_of_birth" id="InpDate" data-position='right top' data-date-format="yyyy-mm-dd" />
+                                <input placeholder="Email" type="email" class="" name="email" id="InpEmail" />
+                                <input placeholder="Пароль" type="password" class="" name="password" id="InpPassword" />
+                                <input placeholder="Повтор пароля" type="password" class="" name="passwordrepeat" id="RepeatPass" />
+
+
+                            </div>
+
+                        </div>
+                        <div class="inp-btn">
+                            <input class="input-btn" type="button" value="Зарегистрироваться" id="createUser" />
+                        </div>
+                        <div class="hr-bottom">
+                            <hr noshade style="margin-bottom:0.5em; height:0.01px" />
+                            <p>*все поля обязательны для заполнения</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="head" id="search1">
+
+        @*@{
+                ViewBag.Title = "Home Page";
+            }*@
+
+        <div class="head-content">
+            <h1>
+                Натуральные <br />
+                кондитерские изделия<br />
+                из натуральных продуктов!»
+            </h1>
+            <h3>
+                Превосходные десерты по сладкой цене<br />
+                с удобной доставкой специально для Вас.
+            </h3>
+        </div>
+        <button class="goToProducts" onclick="location.href = '/Products';">Сделать заказ</button>
+
+
+    </div>
+    <div class="content">
+        <div class="section-1">
+            <h1>
+                Почему клиенты выбирают Patetico?
+            </h1>
+            <div class="reasons">
+                <div class="reason">
+                    <img src="~/img/icons8-cake-64.png" alt="причина 1" />
+                    <div class="reason-content">
+                        <h4>Свежие ингридиенты</h4>
+                        <p>
+                            Наши поставщики не готовят впрок, потому что мы считаем, что лучший
+                            десерт – свежий десерт.
+                        </p>
+                    </div>
+                </div>
+                <div class="reason">
+                    <img src="~/img/icons8-cupcake-with-a-berry-64.png" alt="причина 1" />
+                    <div class="reason-content">
+                        <h4>Лучшие кондитеры</h4>
+                        <p>
+                            Каждый десерт делается вручную влюбленными в свое дело людьми.<br />
+                            Мы любим, когда красиво.
+                        </p>
+                    </div>
+                </div>
+                <div class="reason" style="padding:0">
+                    <img src="~/img/icons8-double-chocolate-cake-64.png" alt="причина 1" />
+                    <div class="reason-content">
+                        <h4>Связь с клиентом</h4>
+                        <p>
+                            Мы уважаем наших покупателей и уделяем особое внимание подготовке абсолютно каждого заказа.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="podsection-1">
+                <img class="content-1-img-1" src="~/img/image-circles.png" />
+                <div class="reason-content">
+                    <div class="podsection-1-text">
+                        <h4>Любимым делом мы занимаемся с 1991 года! </h4>
+                        <div class="podsection-1-h6">
+                            <h6>
+                                За это время сотни тысяч человек разделили с нами
+                                самые счастливые и радостные моменты своей жизни.
+                            </h6>
+                            <h6>
+                                Наши сладости из натуральных ингредиентов
+                                готовы порадовать Вас и Ваших близких!
+                            </h6>
+                            <h6>
+                                Запасайтесь десертом, оформляйте заказ сейчас!
+                            </h6>
+                        </div>
+                    </div>
+                    <button class="goToProducts" onclick="location.href = '/Products';">Перейти к каталогу</button>
+                </div>
+                <img class="content-1-img-2" src="~/img/content-img.png" />
+
+            </div>
+        </div>
+        <div class="section-2">
+            <h1>
+                Наш ассортимент
+            </h1>
+            <div class="content-2">
+                <div class="product-div">
+                    <img src="~/img/@Html.DisplayFor(model => Model.ToList()[0].img_product)" />
+                    <h5>
+                        @Html.DisplayFor(model => Model.ToList()[0].product_name)
+                    </h5>
+                    <div class="product-subtitle">
+                        <h6>
+                            @Convert.ToString(Model.ToList()[0].price).Remove(Convert.ToString(Model.ToList()[0].price).Length - 3, 3) <i class="fas fa-ruble-sign"></i>
+                        </h6>
+                        <p>Подробнее ></p>
+                    </div>
+                </div>
+                <div class="product-div">
+                    <img src="~/img/@Html.DisplayFor(model => Model.ToList()[1].img_product)" />
+                    <h5>
+                        @Html.DisplayFor(model => Model.ToList()[1].product_name)
+                    </h5>
+                    <div class="product-subtitle">
+                        <h6>
+                            @Convert.ToString(Model.ToList()[1].price).Remove(Convert.ToString(Model.ToList()[1].price).Length - 3, 3) <i class="fas fa-ruble-sign"></i>
+                        </h6>
+                        <p>Подробнее ></p>
+                    </div>
+                </div>
+                <div class="product-div" style="margin:0">
+                    <img src="~/img/@Html.DisplayFor(model => Model.ToList()[2].img_product)" />
+                    <h5>
+                        @Html.DisplayFor(model => Model.ToList()[2].product_name)
+                    </h5>
+                    <div class="product-subtitle">
+                        <h6>
+                            @Convert.ToString(Model.ToList()[2].price).Remove(Convert.ToString(Model.ToList()[2].price).Length - 3, 3) <i class="fas fa-ruble-sign"></i>
+                        </h6>
+                        <p>Подробнее ></p>
+                    </div>
+                </div>
+            </div>
+            <div class="content-2" style="margin-top:50px">
+                <div class="product-div">
+                    @*<img src="~/img/@Html.DisplayFor(model => item[3].img_product)" />*@
+                    <img src="~/img/@Html.DisplayFor(model => Model.ToList()[3].img_product)" />
+                    <h5>
+                        @Html.DisplayFor(model => Model.ToList()[3].product_name)
+                    </h5>
+                    <div class="product-subtitle">
+                        <h6>
+                            @Convert.ToString(Model.ToList()[3].price).Remove(Convert.ToString(Model.ToList()[3].price).Length - 3, 3) <i class="fas fa-ruble-sign"></i>
+                        </h6>
+                        <p>Подробнее ></p>
+                    </div>
+                </div>
+                <div class="product-div">
+                    <img src="~/img/@Html.DisplayFor(model => Model.ToList()[4].img_product)" />
+                    <h5>
+                        @Html.DisplayFor(model => Model.ToList()[4].product_name)
+                    </h5>
+                    <div class="product-subtitle">
+                        <h6>
+                            @Convert.ToString(Model.ToList()[4].price).Remove(Convert.ToString(Model.ToList()[4].price).Length - 3, 3) <i class="fas fa-ruble-sign"></i>
+                        </h6>
+                        <p>Подробнее ></p>
+                    </div>
+                </div>
+                <div class="product-div" style="margin:0">
+                    <img src="~/img/@Html.DisplayFor(model => Model.ToList()[5].img_product)" />
+                    <h5>
+                        @Html.DisplayFor(model => Model.ToList()[5].product_name)
+                    </h5>
+                    <div class="product-subtitle">
+                        <h6>
+                            @Convert.ToString(Model.ToList()[5].price).Remove(Convert.ToString(Model.ToList()[5].price).Length - 3, 3) <i class="fas fa-ruble-sign"></i>
+                        </h6>
+                        <p>Подробнее ></p>
+                    </div>
+                </div>
+            </div>
+            <div id="goToCatalog">
+                <h3>Перейти к каталогу </h3><i class="fas fa-chevron-right"></i>
+            </div>
+        </div>
+        <div class="section-3">
+            <h1>
+                Доставка и оплата
+            </h1>
+            <div class="reasons">
+                <div class="reason" style="margin-top:-20px">
+                    <img src="~/img/icons8-remove-delivery-50.png" alt="причина 1" />
+                    <div class="reason-content">
+                        <h4>Оформите заказ</h4>
+                        <p>
+                            Наш менеджер свяжется с Вами для уточнения деталей в течение 15 минут после подтверждения заказа!
+                        </p>
+                    </div>
+                </div>
+                <div class="reason" style="margin-top:-20px">
+                    <img src="~/img/icons8-delivery-64.png" alt="причина 1" />
+                    <div class="reason-content">
+                        <h4>Совершите оплату</h4>
+                        <p>
+                            Заказ Вы можете удобно оплатить картой или наличными прямо при его получении!
+                        </p>
+                    </div>
+                </div>
+                <div class="reason" style="padding:0; margin-top:-20px">
+                    <img src="~/img/icons8-successful-delivery-50.png" alt="причина 1" />
+                    <div class="reason-content">
+                        <h4>Получите сладости</h4>
+                        <p>
+                            Доставка осуществляется качественно, быстро и бесплатно в любую точку Новосибирска!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-4">
+            <h1>
+                Отзывы наших покупателей
+            </h1>
+            <div class="slideshow-container">
+
+                <div class="sub_spec_box_1 fade">
+                    <div class="content-4">
+                        <div class="rew">
+                            <img src="~/img/rev-1.jpg" />
+                            <div class="rew-text">
+                                <h5>Асим Мехдиев</h5>
+                                <h6>Заказали в качестве подарка на день рождения чудесные маффины с корицей! Могу отметить их превосходный вкус и кремовую начинку!</h6>
+                            </div>
+                        </div>
+                        <div class="rew">
+                            <img src="~/img/rev-2.jpg" />
+                            <h5>Марина Мариева</h5>
+                            <h6>Заказали в качестве подарка на день рождения чудесные маффины с корицей! Могу отметить их превосходный вкус и кремовую начинку!</h6>
+                        </div>
+                        <div class="rew" style="margin:0">
+                            <img src="~/img/rev-3.jpg" />
+
+                            <h5>Цвета Цветаева</h5>
+                            <h6>Заказали в качестве подарка на день рождения чудесные маффины с корицей! Могу отметить их превосходный вкус и кремовую начинку!</h6>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="sub_spec_box_1 fade" style="display:none">
+                    <div class="content-4">
+                        <div class="rew">
+                            <img src="~/img/rev-2.jpg" />
+                            <div class="rew-text">
+                                <h5>Игорь Игорев</h5>
+                                <h6>Заказали в качестве подарка на день рождения чудесные маффины с корицей! Могу отметить их превосходный вкус и кремовую начинку!</h6>
+                            </div>
+                        </div>
+                        <div class="rew">
+                            <img src="~/img/rev-1.jpg" />
+
+                            <h5>Вилла Виллова</h5>
+                            <h6>Заказали в качестве подарка на день рождения чудесные маффины с корицей! Могу отметить их превосходный вкус и кремовую начинку!</h6>
+                        </div>
+                        <div class="rew" style="margin:0">
+                            <img src="~/img/rev-3.jpg" />
+                            <h5>Маша Машева</h5>
+                            <h6>Заказали в качестве подарка на день рождения чудесные маффины с корицей! Могу отметить их превосходный вкус и кремовую начинку!</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub_spec_box_1 fade" style="display:none">
+                    <div class="content-4">
+                        <div class="rew">
+                            <img src="~/img/rev-3.jpg" />
+
+                            <div class="rew-text">
+                                <h5>Ваня Ванев</h5>
+                                <h6>Заказали в качестве подарка на день рождения чудесные маффины с корицей! Могу отметить их превосходный вкус и кремовую начинку!</h6>
+                            </div>
+                        </div>
+                        <div class="rew">
+                            <img src="~/img/rev-1.jpg" />
+
+                            <h5>Миллер Миллер</h5>
+                            <h6>Заказали в качестве подарка на день рождения чудесные маффины с корицей! Могу отметить их превосходный вкус и кремовую начинку!</h6>
+                        </div>
+                        <div class="rew" style="margin:0">
+                            <img src="~/img/rev-2.jpg" />
+
+                            <h5>Кристина Бок</h5>
+                            <h6>Заказали в качестве подарка на день рождения чудесные маффины с корицей! Могу отметить их превосходный вкус и кремовую начинку!</h6>
+                        </div>
+                    </div>
+                </div>
+                <a class="prev" onclick="pluseSlides(-1)"><i class="fas fa-chevron-left"></i></a>
+                <a class="next" onclick="pluseSlides(1)"><i class="fas fa-chevron-right"></i></a>
+            </div>
+            <br>
+            <div style="text-align: center;">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+            <div class="arrow-up">
+                <a class="scrollto_up" href="#search1"><img src="~/img/arrow-up.png" alt="icon"></a>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-text">
+                <div class="footer-row">
+                    <div class="footer-column-1">
+                        <div class="footer-row">
+                            <img src="~/img/gmail-img.png" />
+                            <h6>pateticosweetshop@gmail.com</h6>
+                        </div>
+                        <div class="footer-row">
+                            <img src="~/img/inst-img.png" />
+                            <h6>patetico_sweetshop</h6>
+                        </div>
+                    </div>
+                    <div class="footer-column-2">
+                        <div class="footer-row">
+                            <img src="~/img/phone-img.png" />
+                            <h6 style="font-size: 24px">+ 7 (913) 766 07 06</h6>
+                        </div>
+                        <div class="footer-row">
+                            <h6 style="padding-left:10px">Ежедневно с 10:00 до 20:00</h6>
+                        </div>
+                    </div>
+                </div>
+                <h5>г. Новосибирск, Военная 1</h5>
+            </div>
+        </div>
+    </div>
+</div>
+@Styles.Render("~/Content/datepicker.css")
+@Scripts.Render("~/Scripts/jquery-3.3.1.min.js")
+@Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+@Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js")
+@Scripts.Render("~/Scripts/index.js")
+@Scripts.Render("~/Scripts/CreateUser.js")
+@Scripts.Render("~/Scripts/CheckUser.js")
+@Scripts.Render("~/Scripts/datepicker.js")
+@Scripts.Render("~/Scripts/jquery.maskedinput.min.js")
+
+
+@section scripts{
+    <script type="text/javascript">
+        $(function () {
+            $('a[href^="#"]').on('click', function (event) {
+                event.preventDefault();
+
+                var sc = $(this).attr("href"),
+                    dn = $(sc).offset().top;
+                $('html, body').animate({
+                    scrollTop: dn
+                }, 1000);
+            });
+        });
+
+    </script>
+    @*<script type="text/javascript" src="~/Scripts/datepicker.js"></script>*@
+}
+

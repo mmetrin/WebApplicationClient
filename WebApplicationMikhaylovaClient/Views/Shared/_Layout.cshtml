@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кондитерский магазин "Patetico"</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+          integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    @Styles.Render("~/Content/Site.css")
+
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav>
+        <a class="logo" href="/Home">
+            <h2>Patetico & Dolce</h2>
+            <h3>sweetshop</h3>
+        </a>
+
+
+        <ul id="menu" class="menu" style="float: none;">
+            @if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                <li><a href="/Shops1">О нас</a></li>
+                <li><a href="/Products">Каталог</a></li>
+                <li><a href="/Products">Отзывы</a></li>
+                <li><a href="/Orders">Доставка и оплата</a></li>
+                <li><a href="#">Корзина</a></li>
+                <li><a href="/Parameters"><i class="fas fa-shopping-basket"></i></a></li>
+                @*<li><a href="#popup" class="user popup-link"><i class="fas fa-user"></i></a></li>*@
+                @*<li><a href="/Orders">Выйти</a></li>*@
+                @*<li> @Html.ActionLink("Выход", "Logout", "Home")</li>*@
+                @*<li><a href="/Home/Logout" class="user"><i class="fas fa-user"></i></a></li>*@
+                <li><a href="/Home/Logout" class="user"><i class="fas fa-sign-out-alt"></i></a></li>
+
+                <li style="cursor:default"><a>+ 7 (913) 766 07 06</a></li>
+            }
+            else
+            {
+                <li><a href="/Shops1">О нас</a></li>
+                <li><a href="/Products">Каталог</a></li>
+                <li><a href="/Products">Отзывы</a></li>
+                <li><a href="/Orders">Доставка и оплата</a></li>
+                <li style="cursor:default"><a>+ 7 (913) 766 07 06</a></li>
+
+                <li><a href="#popup" class="user popup-link"><i class="fas fa-user"></i></a></li>
+            }
+        </ul>
+        
+
+        @*@if (Session["Menu"] == null)
+        {
+            Session["Menu"] = Html.Partial("~/Views/Shared/_Menu.cshtml");
+        }
+        @Session["Menu"]*@
+
+
+    </nav>
+
+
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Scripts/js.js")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

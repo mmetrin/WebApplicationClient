@@ -1,0 +1,28 @@
+﻿<ul id="menu" class="menu" style="float: none;">
+    @if (HttpContext.Current.User.Identity.IsAuthenticated)
+    {
+        <li><a href="/Shops1">О нас</a></li>
+        <li><a href="/Products">Каталог</a></li>
+        <li><a href="/Products">Отзывы</a></li>
+        <li><a href="/Orders">Доставка и оплата</a></li>
+        <li><a href="#">Корзина</a></li>
+        <li><a href="/Parameters"><i class="fas fa-shopping-basket"></i></a></li>
+        @*<li><a href="#popup" class="user popup-link"><i class="fas fa-user"></i></a></li>*@
+        @*<li><a href="/Orders">Выйти</a></li>*@
+        @*<li> @Html.ActionLink("Выход", "Logout", "Home")</li>*@
+        @*<li><a href="/Home/Logout" class="user"><i class="fas fa-user"></i></a></li>*@
+        <li><a href="/Home/Logout" class="user"><i class="fas fa-sign-out-alt"></i></a></li>
+        
+        <li style="cursor:default"><a>+ 7 (913) 766 07 06</a></li>
+    }
+    else
+    {
+        <li><a href="/Shops1">О нас</a></li>
+        <li><a href="/Products">Каталог</a></li>
+        <li><a href="/Products">Отзывы</a></li>
+        <li><a href="/Orders">Доставка и оплата</a></li>
+        <li style="cursor:default"><a>+ 7 (913) 766 07 06</a></li>
+
+        <li><a href="#popup" class="user popup-link"><i class="fas fa-user"></i></a></li>
+    }
+</ul>

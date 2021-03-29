@@ -1,0 +1,45 @@
+﻿@model IEnumerable<WebApplicationMikhaylovaClient.Models.Reviews>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.user_rev)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rev_cons)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.img_rev)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_rev)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rev_cons)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.img_rev)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_rev }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_rev }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_rev })
+        </td>
+    </tr>
+}
+
+</table>
